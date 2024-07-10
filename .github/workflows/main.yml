@@ -3,15 +3,32 @@ name: SayHello
 on:
  push:
    branches:
-     - main
+     - develop
+      - main 
     
 jobs:
   welcome:
      runs-on: ubuntu-latest
      
      steps:
-       - name: Download your code
+       - name: Download your code  🙌
          uses: actions/checkout@v2
 
-       - name: Say something
+       - name: Say something 🎁
          run: echo "hello world"
+
+
+ hello-main: 
+    runs-on: ubuntu-latest
+    
+     steps: 
+      -name: Download your code 😎
+       uses: actions/checkout@v2
+
+       - name: Verify branch 😊
+          if: $[[ github.ref == "refs/heads/develop"]]
+          run: echo "hello develop"
+
+          - name: Verify main develop 🎉
+              if: $[[ github.ref == "refs/heads/develop"]]
+               run: echo "hello main"
